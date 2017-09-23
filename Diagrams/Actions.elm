@@ -1,8 +1,9 @@
 module Diagrams.Actions
-    ( PickPath, PickPathElem, MouseEvent(..)
-    , EventToAction, ActionSet, emptyActionSet, keepBubbling
-    , stopBubbling, mousePosAtPath
-    ) where
+    exposing
+      ( PickPath, PickPathElem, MouseEvent(..)
+      , EventToAction, ActionSet, emptyActionSet, keepBubbling
+      , stopBubbling, mousePosAtPath
+      ) 
 
 {-| ActionSets can be attached to diagrams with `Core.tagWithActions`, and used
 with module `Diagrams.Interact`. Build them with e.g.
@@ -20,7 +21,6 @@ and the GraphEditor example for more info on how to use actions, including how b
 -}
 
 import List as L
-import Debug
 
 import Diagrams.Geom exposing (..)
 

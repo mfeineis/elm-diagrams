@@ -1,13 +1,11 @@
-module Basic where
+module Basic exposing (..)
 
-import Graphics.Element as E
-import Graphics.Collage as C
-import Signal
+import Element as E
+import Collage as C
 import Window
 import Html
 
 import Color
-import Debug
 import Text as T
 import List as L
 

@@ -1,13 +1,17 @@
 module Diagrams.Envelope
-    ( envelope, width, height, boundingBox
-    ) where
+    exposing
+      ( envelope
+      , width
+      , height
+      , boundingBox
+      )
 
 {-|
 @docs envelope, width, height, boundingBox
 -}
 
 import List as L
-import Graphics.Element as E
+import Element as E
 import Maybe as M
 
 import Diagrams.Core exposing (..)
@@ -35,8 +39,8 @@ envelope dir dia =
 
       handlePath path =
         let
-          xs = L.map fst path
-          ys = L.map snd path
+          xs = L.map Tuple.first path
+          ys = L.map Tuple.second path
         in
           case dir of
             Left -> -(def0 <| L.minimum xs)
@@ -45,8 +49,8 @@ envelope dir dia =
             Down -> -(def0 <| L.minimum ys)
     in
       case dia of
-        Tag _ _ dia' ->
-          envelope dir dia'
+        Tag _ _ dia_ ->
+          envelope dir dia_
 
         Group dias ->
           case dias of -- TODO: cache

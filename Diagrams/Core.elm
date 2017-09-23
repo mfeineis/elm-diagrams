@@ -1,10 +1,11 @@
 module Diagrams.Core
-    ( circle, rect, path, polygon, text, spacer, transform
-    , group, tag, tagWithActions, ngon, eqTriangle
-    , move, moveX, moveY, scale, rotate
-    , render
-    , empty, vspace, hspace, vline, hline
-    ) where
+    exposing
+      ( circle, rect, path, polygon, text, spacer, transform
+      , group, tag, tagWithActions, ngon, eqTriangle
+      , move, moveX, moveY, scale, rotate
+      , render
+      , empty, vspace, hspace, vline, hline
+      )
 
 {-| Diagrams is a library built on top of `Graphics.Collage` which allows you to
 construct graphics by laying out elements relative to each other.
@@ -53,11 +54,11 @@ which exports everything is a good idea.
 
 -}
 
-import Graphics.Collage as C
-import Graphics.Element as E
+import Collage as C
+import Element as E
 import Text as T
 import List as L
-import Transform2D
+import Transform
 import Color
 
 import Diagrams.Geom exposing (..)
@@ -132,7 +133,7 @@ ngon n r fs =
   let m = toFloat n
       t = 2 * pi / m
       f i = ( r * cos ((t*i) + pi/2), r * sin ((t*i) + pi/2) )
-  in polygon (L.map f [0..m-1]) fs
+  in polygon (L.map f (L.map toFloat (L.range 0 (floor (m-1))))) fs
 
 -- basic transformations
 

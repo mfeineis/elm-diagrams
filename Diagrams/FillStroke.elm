@@ -1,4 +1,4 @@
-module Diagrams.FillStroke where
+module Diagrams.FillStroke exposing (..)
 
 {-| Construct fills and strokes for diagrams.
 
@@ -10,7 +10,7 @@ module Diagrams.FillStroke where
 -}
 
 import Color
-import Graphics.Collage as C
+import Collage as C
 
 {-| literally a copy of Graphics.Collage.FillStyle, cuz it's no longer exported -}
 type FillStyle

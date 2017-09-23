@@ -1,4 +1,4 @@
-module Diagrams.Geom where
+module Diagrams.Geom exposing (..)
 
 {-| Geometry utilities used by the rest of the library.
 
@@ -74,7 +74,7 @@ pointNegate (x, y) = (-x, -y)
 
 {-|-}
 pointSubtract : Point -> Point -> Point
-pointSubtract a b = a `pointAdd` (pointNegate b)
+pointSubtract a b = pointAdd a (pointNegate b)
 
 -- Boxes
 
